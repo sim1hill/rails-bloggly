@@ -6,8 +6,11 @@ class PostController < ApplicationController
   end
 
   def create
-    binding.pry
-    @post = Post.create(params)
+    Post.create(post_params)
+    @posts = Post.all
+    respond_to do |format|
+      format.json
+    end
   end
 
   def gifs
@@ -26,4 +29,11 @@ class PostController < ApplicationController
       format.json
     end 
   end
+
+private
+
+def post_params
+  params.require(:post).permit(:title, :content, :gifs)
+end
+
 end
