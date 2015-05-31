@@ -4,6 +4,11 @@ class PostController < ApplicationController
   def index
   end
 
+  def create
+    binding.pry
+    @post = Post.create(params)
+  end
+
   def gifs
     searchterm = params[:q]
     split_string = searchterm.split(" ")
