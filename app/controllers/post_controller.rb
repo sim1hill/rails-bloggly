@@ -17,7 +17,7 @@ class PostController < ApplicationController
     searchterm = params[:q]
     split_string = searchterm.split(" ")
     if split_string.length > 1
-      slug = split.string.join("+")
+      slug = split_string.join("+")
     else
       slug = searchterm
     end
