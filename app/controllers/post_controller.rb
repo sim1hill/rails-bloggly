@@ -30,6 +30,13 @@ class PostController < ApplicationController
     end 
   end
 
+  def saved_posts
+    @posts = Post.all
+    respond_to do |format|
+      format.json
+    end
+  end
+
 private
 
 def post_params
